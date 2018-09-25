@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IUser } from './models/User';
-// import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UserService } from './user.service';
 
 
@@ -9,7 +8,7 @@ import { UserService } from './user.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Client';
   url = 'http://localhost:3000/api/v1/user';
   users: IUser[];
@@ -21,7 +20,7 @@ export class AppComponent {
 
   getUsers(): void {
     this.userService.getUsers()
-      .subscribe((users: IUser[]) => { console.log(this.users); });
+      .subscribe((users: IUser[]) => { this.users = users; console.log(this.users); });
   }
 }
 
