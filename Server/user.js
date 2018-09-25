@@ -3,33 +3,31 @@ const Users = () => {
         {
             username: 'lolik1',
             name: 'Vlad1',
-            mail: 'wwww1@gmail.com',
+            email: 'wwww1@gmail.com',
 
 
         },
         {
             username: 'lolik2',
             name: 'Vlad2',
-            mail: 'wwww2@gmail.com',
+            email: 'wwww2@gmail.com',
         },
         {
             username: 'lolik3',
             name: 'Vlad3',
-            mail: 'wwww3@gmail.com',
+            email: 'wwww3@gmail.com',
         }
     ]
 };
-module.exports = Users;
+module.exports = Users; 
 
-/*class User1 {
-    static get users1() {
-        return User1 = [
+/*class User {
+    get users() {
+        return this.users = [
             {
                 username: 'lolik1',
                 name: 'Vlad1',
-                mail: 'wwww1@gmail.com',
-
-
+                mail: 'wwww1@gmail.com'
             },
             {
                 username: 'lolik2',
@@ -43,9 +41,19 @@ module.exports = Users;
             }
         ];
     }
-
+    
+    ] 
     constructor() {
+
     }
-}
+};
+
+module.exports = User;
+server.js
+
+const User = require('./user.js');
+
+// Instantiate User: 
+let user = new User();
 
 module.exports = User1; */
