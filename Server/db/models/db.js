@@ -1,5 +1,5 @@
-/*const Sequelize = require('sequelize');
-module.exports = new Sequelize('sample', 'root', 'KTDXTYRJ', {
+const Sequelize = require('sequelize');
+module.exports = new Sequelize('sample', 'root', 'CNFYBCKFD', {
     host: 'localhost',
     dialect: 'mysql',
     pool: {
@@ -8,4 +8,4 @@ module.exports = new Sequelize('sample', 'root', 'KTDXTYRJ', {
         acquire: 30000,
         idle: 10000
     },
-}) */
+}) 

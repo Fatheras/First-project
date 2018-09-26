@@ -6,14 +6,17 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "seeders": "node_modules/.bin/sequelize db:seed:all",
+    "migrations": "node_modules/.bin/sequelize db:migrate"
   },
   "author": "Stas",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.3",
     "mysql2": "^1.6.1",
-    "sequelize": "^4.39.0"
+    "sequelize": "^4.39.0",
+    "sequelize-cli": "^4.1.1"
   },
   "devDependencies": {
     "nodemon": "^1.18.4"
