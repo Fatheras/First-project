@@ -1,4 +1,4 @@
-/*const User = require('../models/user');
+const User = require('../models/user');
 
 module.exports = class UserService {
     constructor() {
@@ -6,4 +6,4 @@ module.exports = class UserService {
     getAllUsers() {
         return User.findAll();
     }
-} */
+} 
