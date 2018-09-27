@@ -1,8 +1,7 @@
 const db = require('../models/db');
-const User = require('../../user/models/user');
-const userService = require('../../user/services/user-service');
-const seederService = require('../../seeders/services/seeder-service');
-const migrationService = require('../../migrations/services/migration-service');
+//const userService = require('../../user/services/user-service');
+//const seederService = require('../../seeders/services/seeder-service');
+//const migrationService = require('../../migrations/services/migration-service');
 
 
 module.exports = class DBService {
@@ -10,7 +9,7 @@ module.exports = class DBService {
         try {
             await db.authenticate();
             await db.sync();
-            seederService.runSeeders();
+            //seederService.runSeeders();
             //userService.getAllUsers();
             //migrationService.runMigrations();
         }
