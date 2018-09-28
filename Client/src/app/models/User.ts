@@ -1,5 +1,9 @@
 export interface IUser {
-    nickname: string;
-    name: string;
-    email: string;
+    // id: Int16Array;
+    firstName: string;
+    lastName: string;
+    address: string;
+    createdAt: Date;
+    updatedAt: Date;
+    phone: Int16Array;
 }

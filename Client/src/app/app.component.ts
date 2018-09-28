@@ -10,7 +10,7 @@ import { UserService } from './user.service';
 })
 export class AppComponent implements OnInit {
   title = 'Client';
-  url = 'http://localhost:3000/api/v1/user';
+  url = 'http://localhost:3000/api/v1/';
   users: IUser[];
 
   constructor(private userService: UserService) { }
