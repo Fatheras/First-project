@@ -5,7 +5,6 @@ const checkParams = require('../server/models/check-params.middleware');
 const joi = require('joi');
 const User = require('../user/models/user');
 
-
 const handleErrorAsync = func => async (req, res, next) => {
   try {
     await func(req, res, next);

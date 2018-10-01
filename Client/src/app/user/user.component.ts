@@ -79,12 +79,14 @@ export class UserComponent implements OnInit {
       .subscribe((users: IUser[]) => { this.users = users; });
   }
 
-  // getUser(): void {
-  //   this.userService.getUser(this.id)
-  //     .subscribe((user: IUser) => { this.user = user; });
-  // }
+  /*getUser(): void {
+    this.userService.getUser(this.id)
+       .subscribe((user: IUser) => { this.user = user; });
+   } */
 
   editUser(): void {
+    // tslint:disable-next-line:no-debugger
+    debugger;
     const user = this.editUserForm.value;
     this.userService.editUser(user).subscribe(
       response => {
