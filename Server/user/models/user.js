@@ -10,7 +10,10 @@ const User = db.define('user', {
     },
     address: {
         type: Sequelize.STRING
-    }
+    },
+    phone: {
+        type: Sequelize.DATE
+    },
 })
 
 module.exports = User; 

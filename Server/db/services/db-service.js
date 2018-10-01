@@ -8,8 +8,8 @@ module.exports = class DBService {
         try {
             await db.authenticate();
             await db.sync();
+            //migrationService.runMigrations();            
             //seederService.runSeeders();
-            //migrationService.runMigrations();
         }
         catch (err) {
             console.log('DBService.initDataBase => Error');

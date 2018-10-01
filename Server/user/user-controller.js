@@ -3,7 +3,8 @@ const UserService = require('./user-services');
 class UserController {
     static async getAllUsers(req, res) {
         const service = new UserService();
-        res.status(200).send(await service.getAllUsers());
+        let users = await service.getAllUsers();
+        res.status(200).send(users);
     }
 
     static async getUser(req, res) {

@@ -18,4 +18,19 @@ export class UserService {
   getUser(id: number): Observable<IUser> {
     return this.http.get<IUser>(this.url + id);
   }
+  createUser(user: IUser) {
+    // tslint:disable-next-line:no-debugger
+    debugger;
+    return this.http.post(this.url, user);
+  }
+
+  editUser(user: IUser) {
+    // tslint:disable-next-line:no-debugger
+    debugger;
+    return this.http.put(this.url + user.id, user);
+  }
+
+  deleteUser(id: number) {
+    return this.http.delete(this.url + id);
+  }
 }

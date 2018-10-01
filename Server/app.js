@@ -1,25 +1,29 @@
 const express = require('express');
 const app = express();
 const router = require('./user/user-router');
-//const router = require('./router');
 const DBService = require('./db/services/db-service');
+const loggers = require('./tools/loggers');
 const port = 3000;
 
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, PATCH");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
   next();
 });
 
 app.use('/api/v1', router);
+
+loggers.initLoggers();
+loggers.initGlobalLoggers();
 
 const initApplication = async () => {
   try {
     await DBService.initDataBase();
   }
   catch (err) {
-    console.log('app => ERROR');
-    console.log(err);
+    logger.error('app => ERROR');
+    logger.error(err);
   }
 }
 
