@@ -14,12 +14,14 @@ export class UserComponent implements OnInit {
   users: IUser[];
   user: IUser;
   idToDelete: number;
-  @ViewChild('createModal') createModal: ElementRef;
-  @ViewChild('editModal') editModal: ElementRef;
-  @ViewChild('deleteModal') deleteModal: ElementRef;
+  /* @ViewChild('createModal') createModal: ElementRef;
+   @ViewChild('editModal') editModal: ElementRef;
+   @ViewChild('deleteModal') deleteModal: ElementRef;
+   @ViewChild('getUserModal') getUserModal: ElementRef; */
 
   createUserForm: FormGroup;
   editUserForm: FormGroup;
+  getUserForm: FormGroup;
 
 
   constructor(private userService: UserService, private modalService: NgbModal) { }
@@ -27,6 +29,7 @@ export class UserComponent implements OnInit {
     this.getUsers();
     this.createFormGroup();
     this.createEditUserForm();
+    this.createGetUserForm();
   }
 
   get firstName() { return this.createUserForm.get('firstName'); }
@@ -38,6 +41,8 @@ export class UserComponent implements OnInit {
   get editLastName() { return this.editUserForm.get('lastName'); }
   get editAddress() { return this.editUserForm.get('address'); }
   get editPhone() { return this.editUserForm.get('phone'); }
+
+  get getId() { return this.getUserForm.get('id'); }
 
   createFormGroup() {
     this.createUserForm = new FormGroup({
@@ -73,23 +78,32 @@ export class UserComponent implements OnInit {
         Validators.minLength(12)])
     });
   }
-
+  createGetUserForm() {
+    this.getUserForm = new FormGroup({
+      id: new FormControl('', [
+        Validators.required,
+        Validators.minLength(1)
+      ])
+    });
+  }
   getUsers(): void {
     this.userService.getUsers()
       .subscribe((users: IUser[]) => { this.users = users; });
   }
 
-  /*getUser(): void {
-    this.userService.getUser(this.id)
+  getUser(): void {
+    // tslint:disable-next-line:no-debugger
+    debugger;
+    this.userService.getUser(this.getUserForm.value)
        .subscribe((user: IUser) => { this.user = user; });
-   } */
+   }
 
   editUser(): void {
     // tslint:disable-next-line:no-debugger
     debugger;
     const user = this.editUserForm.value;
     this.userService.editUser(user).subscribe(
-      response => {
+      () => {
         this.getUsers();
         this.modalService.dismissAll();
       });
@@ -100,7 +114,7 @@ export class UserComponent implements OnInit {
     debugger;
     const user = this.createUserForm.value;
     this.userService.createUser(user).subscribe(
-      response => {
+      () => {
         this.getUsers();
         this.modalService.dismissAll();
       });
@@ -108,7 +122,7 @@ export class UserComponent implements OnInit {
 
   deleteUser(): void {
     this.userService.deleteUser(this.idToDelete).subscribe(
-      response => {
+      () => {
         this.getUsers();
         this.modalService.dismissAll();
       });
@@ -116,6 +130,10 @@ export class UserComponent implements OnInit {
 
   showCreateModal(showCreateModal: HTMLInputElement) {
     this.modalService.open(showCreateModal);
+  }
+
+  showGetUserModal(showGetUserModal: HTMLInputElement) {
+    this.modalService.open(showGetUserModal);
   }
 
   showEditModal(showEditModal: HTMLInputElement, user: IUser) {
