@@ -91,6 +91,7 @@ export class UserComponent implements OnInit {
       .subscribe((users: IUser[]) => { this.users = users; });
   }
 
+// currently don't working
   getUser(): void {
     // tslint:disable-next-line:no-debugger
     debugger;

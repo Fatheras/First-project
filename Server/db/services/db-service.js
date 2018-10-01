@@ -12,8 +12,8 @@ module.exports = class DBService {
             //seederService.runSeeders();
         }
         catch (err) {
-            console.log('DBService.initDataBase => Error');
-            console.log(err);
+            logger.err('DBService.initDataBase => Error');
+            logger.err(err);
         }
     }
 } 
