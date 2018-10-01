@@ -96,6 +96,8 @@ export class UserComponent implements OnInit {
   }
 
   createUser(): void {
+    // tslint:disable-next-line:no-debugger
+    debugger;
     const user = this.createUserForm.value;
     this.userService.createUser(user).subscribe(
       response => {

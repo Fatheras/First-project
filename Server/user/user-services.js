@@ -27,8 +27,8 @@ class UserService {
 
     async createUser(model) {
         if (model) {
-            if (!model.Id) {
-                return User.create(Model);
+            if (!model.id) {
+                return User.create(model);
             }
             throw new Error('User already exists');
         }
