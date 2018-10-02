@@ -4,8 +4,6 @@ const router = require('./user/user-router');
 const DBService = require('./db/services/db-service');
 const loggers = require('./tools/loggers');
 const bodyParser = require('body-parser');
-//var multer = require('multer'); // v1.0.5 
-//var upload = multer(); // for parsing multipart/form-data
 
 const port = 3000;
 

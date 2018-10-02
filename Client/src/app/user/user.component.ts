@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, ViewChild, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit } from '@angular/core';
 import { IUser } from '../models/User';
 import { UserService } from '../shared/user.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
@@ -14,6 +14,7 @@ export class UserComponent implements OnInit {
   users: IUser[];
   user: IUser;
   idToDelete: number;
+  showUser: boolean;
   /* @ViewChild('createModal') createModal: ElementRef;
    @ViewChild('editModal') editModal: ElementRef;
    @ViewChild('deleteModal') deleteModal: ElementRef;
@@ -91,17 +92,18 @@ export class UserComponent implements OnInit {
       .subscribe((users: IUser[]) => { this.users = users; });
   }
 
-// currently don't working
   getUser(): void {
     // tslint:disable-next-line:no-debugger
     debugger;
-    this.userService.getUser(this.getUserForm.value)
-       .subscribe((user: IUser) => { this.user = user; });
+    this.userService.getUser(this.getUserForm.value.id)
+       .subscribe((user: IUser) => {
+         this.user = user;
+         this.showUser = true;
+         console.log(this.user);
+        });
    }
 
   editUser(): void {
-    // tslint:disable-next-line:no-debugger
-    debugger;
     const user = this.editUserForm.value;
     this.userService.editUser(user).subscribe(
       () => {

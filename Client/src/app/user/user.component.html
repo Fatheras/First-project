@@ -261,7 +261,37 @@
         </div>
       </div>
     </form>
+
+    <div *ngIf="showUser">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">First Name</span>
+        </div>
+        <input type="text" [(ngModel)]="user.firstName" readonly>
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Second Name</span>
+        </div>
+        <input type="text" [(ngModel)]="user.lastName" readonly>
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Address</span>
+        </div>
+        <input type="text" [ngModel]="user.address" readonly>
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Phone</span>
+        </div>
+        <input type="text" [ngModel]="user.phone" readonly>
+    </div>
   </div>
+</div>
   <div class="modal-footer">
     <button type="submit" class="btn btn-outline-dark" [disabled]="!getUserForm.valid" form="getUserForm">Submit</button>
   </div>
